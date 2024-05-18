@@ -1,0 +1,33 @@
+﻿@page
+@model Midterm_Assign_1.Views.Account.LoginModel
+@{
+    ViewBag.Title = "Login";
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Login</title>
+</head>
+<body>
+    <h2>Login</h2>
+
+    @using (Html.BeginForm("Login", "Account", FormMethod.Post))
+    {
+        @Html.AntiForgeryToken()
+
+        <div>
+            <label>Username:</label>
+            @Html.TextBox("username", null, new { @class = "form-control" })
+        </div>
+
+        <div>
+            <label>Password:</label>
+            @Html.Password("password", null, new { @class = "form-control" })
+        </div>
+
+        <button type="submit">Login</button>
+    }
+</body>
+</html>
